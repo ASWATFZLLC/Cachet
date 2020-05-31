@@ -2,7 +2,7 @@
     <div class="row">
         <div class="col-md-12 text-center">
                 <h1 style="font-weight:bold;color:#ad3278">Having an issue that is not reported above ?</h1>
-                <a style="font-weight:bold;color:##246afc;font-size:15px" href="mailto:support@ziwo.io">Tell us</a>
+                <a style="font-weight:bold;color:#1f73b7;font-size:30px" href="mailto:support@ziwo.io">Tell us</a>
             </div>
         </div>
 </div>
