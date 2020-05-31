@@ -109,6 +109,8 @@ module.exports = {
             this.getData().then(this.updateChart)
         },
         updateChart () {
+            console.log(this.data.pop())
+            this.data=this.data.pop()
             if (this.chart !== null) {
                 this.chart.destroy()
             }
