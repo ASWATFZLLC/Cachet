@@ -91,6 +91,8 @@ module.exports = {
                 }
             }).then(response => {
                 this.data = response.data.data.items
+                lastIndex=this.data.length-1
+                this.data=this.data.slice(lastIndex, 1);
 
                 this.loading = false
 
@@ -121,8 +123,6 @@ module.exports = {
              * This cutting is done only if there is an hour in the string, so
              * if the view by day is set it doesn't fail.
              */
-            lastIndex=this.data.length-1
-            this.data=this.data.slice(lastIndex, 1);
             var data_keys = _.keys(this.data);
             if (0 < data_keys.length && data_keys[0].length > 10) {
                 for (var i = 0; i < data_keys.length; i++) {
