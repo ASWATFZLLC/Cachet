@@ -16,9 +16,10 @@
             </div>
         </div>
         <div class="row">
-            <div class="col-xs-12">
-                <canvas :id="metricId" height="160" width="600"></canvas>
+            <div class="col-xs-12" style="margin-bottom:20px">
+                <canvas :id="metricId" height="360" width="600"></canvas>
             </div>
+
         </div>
     </div>
 </template>
