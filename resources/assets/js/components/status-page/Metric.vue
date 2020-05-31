@@ -12,9 +12,6 @@
                 <div class="dropdown pull-right">
                     <a href='javascript: void(0)' class="btn btn-default dropdown-toggle" data-toggle="dropdown"><span class='filter'>{{view.title || metric.default_view_name}}</span> <span class="caret"></span></a>
 
-                    <ul class="dropdown-menu dropdown-menu-right">
-                        <li><a @click="changeView('month', 'Month')">Month</a></li>
-                    </ul>
                 </div>
             </div>
         </div>
@@ -85,13 +82,6 @@ module.exports = {
         }
     },
     methods: {
-        today(){
-                var today = new Date(); 
-                var dd = today.getDate(); 
-                var mm = today.getMonth(); 
-                var yyyy = today.getFullYear(); 
-                return yyyy + '-' + mm + '-' + dd; 
-        },
         getData () {
             this.loading = true
 
@@ -100,11 +90,8 @@ module.exports = {
                     filter: this.view.param
                 }
             }).then(response => {
+                this.data = response.data.data.items.pop()
 
-                this.data = response.data.data.items;
-
-                //remove last item on array(today)
-                this.data = this.data.pop;
                 this.loading = false
 
                 this.updateChart()
