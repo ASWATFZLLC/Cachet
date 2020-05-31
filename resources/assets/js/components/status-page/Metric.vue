@@ -90,7 +90,7 @@ module.exports = {
                     filter: this.view.param
                 }
             }).then(response => {
-                this.data = response.data.data.items.pop()
+                this.data = response.data.data.items
 
                 this.loading = false
 
