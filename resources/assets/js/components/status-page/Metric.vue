@@ -91,9 +91,6 @@ module.exports = {
                 }
             }).then(response => {
                 this.data = response.data.data.items
-                lastIndex=this.data.length-1
-                this.data=this.data.slice(lastIndex, 1);
-
                 this.loading = false
 
                 this.updateChart()

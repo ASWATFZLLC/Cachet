@@ -1,3 +1,11 @@
+<div class="container">
+    <div class="row">
+        <div class="col-md-12 text-center">
+                <h1 style="font-weight:bold;color:#ad3278">Having an issue that is not reported above ?</h1>
+                <a style="font-weight:bold;color:##246afc;font-size:15px" href="mailto:support@ziwo.io">Tell us</a>
+            </div>
+        </div>
+</div>
 @if($appFooter)
 {!! $appFooter !!}
 @else
