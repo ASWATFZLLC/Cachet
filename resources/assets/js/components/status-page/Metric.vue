@@ -17,7 +17,7 @@
         </div>
         <div class="row">
             <div class="col-xs-12" style="margin-bottom:20px">
-                <canvas :id="metricId" height="250" width="600"></canvas>
+                <canvas :id="metricId" height="180" width="600"></canvas>
             </div>
 
         </div>
