@@ -36,8 +36,9 @@ class PgSqlRepository extends AbstractMetricRepository implements MetricInterfac
             "FROM {$this->getMetricsTable()} INNER JOIN {$this->getMetricPointsTable()} ON {$this->getMetricsTable()}.id = {$this->getMetricPointsTable()}.metric_id ".
             "WHERE {$this->getMetricsTable()}.id = :metricId ".
             "AND {$this->getMetricPointsTable()}.created_at >= (NOW() - INTERVAL '{$minutes}' MINUTE) ".
-            "AND {$this->getMetricPointsTable()}.created_at <= NOW() ".
-            "GROUP BY to_char({$this->getMetricPointsTable()}.created_at, 'YYYY-MM-DD HH24:MI'), value ".
+            "AND {$this->getMetricPointsTable()}.created_at <= (DATE(NOW()) - INTERVAL 1 DAY) ".
+//            "AND {$this->getMetricPointsTable()}.created_at <= DATE(NOW()) ".
+//            "GROUP BY to_char({$this->getMetricPointsTable()}.created_at, 'YYYY-MM-DD HH24:MI'), value ".
             "ORDER BY to_char({$this->getMetricPointsTable()}.created_at, 'YYYY-MM-DD HH24:MI') ", [
             'metricId' => $metric->id,
         ]);
@@ -60,8 +61,9 @@ class PgSqlRepository extends AbstractMetricRepository implements MetricInterfac
             "FROM {$this->getMetricsTable()} INNER JOIN {$this->getMetricPointsTable()} ON {$this->getMetricsTable()}.id = {$this->getMetricPointsTable()}.metric_id ".
             "WHERE {$this->getMetricsTable()}.id = :metricId ".
             "AND {$this->getMetricPointsTable()}.created_at >= (NOW() - INTERVAL '{$hour}' HOUR) ".
-            "AND {$this->getMetricPointsTable()}.created_at <= NOW() ".
-            "GROUP BY to_char({$this->getMetricPointsTable()}.created_at, 'YYYY-MM-DD HH24:00'), value ".
+            "AND {$this->getMetricPointsTable()}.created_at <= (DATE(NOW()) - INTERVAL 1 DAY) ".
+//            "AND {$this->getMetricPointsTable()}.created_at <= DATE(NOW()) ".
+//            "GROUP BY to_char({$this->getMetricPointsTable()}.created_at, 'YYYY-MM-DD HH24:00'), value ".
             "ORDER BY to_char({$this->getMetricPointsTable()}.created_at, 'YYYY-MM-DD HH24:00')", [
             'metricId' => $metric->id,
         ]);
@@ -84,8 +86,9 @@ class PgSqlRepository extends AbstractMetricRepository implements MetricInterfac
             "FROM {$this->getMetricsTable()} INNER JOIN {$this->getMetricPointsTable()} ON {$this->getMetricsTable()}.id = {$this->getMetricPointsTable()}.metric_id ".
             "WHERE {$this->getMetricsTable()}.id = :metricId ".
             "AND {$this->getMetricPointsTable()}.created_at >= (DATE(NOW()) - INTERVAL '{$day}' DAY) ".
-            "AND {$this->getMetricPointsTable()}.created_at <= DATE(NOW()) ".
-            "GROUP BY DATE({$this->getMetricPointsTable()}.created_at), value ".
+            "AND {$this->getMetricPointsTable()}.created_at <= (DATE(NOW()) - INTERVAL 1 DAY) ".
+//            "AND {$this->getMetricPointsTable()}.created_at <= DATE(NOW()) ".
+//            "GROUP BY DATE({$this->getMetricPointsTable()}.created_at), value ".
             "ORDER BY DATE({$this->getMetricPointsTable()}.created_at)", [
                 'metricId' => $metric->id,
             ]);
