@@ -131,11 +131,6 @@ module.exports = {
             values = _.values(this.data)
             values.splice(values.length-1, 1);
 
-            console.log(data_keys)
-            console.log(values)
-            
-
-
             this.chart = new Chart(this.context, {
                 type: 'line',
                 data: {
