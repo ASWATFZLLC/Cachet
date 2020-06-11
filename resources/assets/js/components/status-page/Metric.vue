@@ -127,7 +127,7 @@ module.exports = {
                     data_keys[i] = data_keys[i].substr(11);
                 }
             }
-            data_keys=data_keys.pop()
+            console.log(data_keys)
             this.chart = new Chart(this.context, {
                 type: 'line',
                 data: {
