@@ -127,13 +127,21 @@ module.exports = {
                     data_keys[i] = data_keys[i].substr(11);
                 }
             }
+            data_keys.splice(data_keys.length-1, 1);
+            values = _.values(this.data)
+            values.splice(values.length-1, 1);
+
             console.log(data_keys)
+            console.log(values)
+            
+
+
             this.chart = new Chart(this.context, {
                 type: 'line',
                 data: {
                     labels: data_keys,
                     datasets: [{
-                        data: _.values(this.data),
+                        data: values,
                         backgroundColor: this.themeLight,
                         borderColor: this.theme,
                         pointBackgroundColor: this.theme,
