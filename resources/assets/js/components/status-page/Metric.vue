@@ -127,6 +127,7 @@ module.exports = {
                     data_keys[i] = data_keys[i].substr(11);
                 }
             }
+            console.log(_.values(this.data))
             this.chart = new Chart(this.context, {
                 type: 'line',
                 data: {
@@ -145,7 +146,7 @@ module.exports = {
                     scales: {
                         yAxes: [{
                             ticks: {
-                                beginAtZero: true,
+                                beginAtZero: false,
                                 suggestedMax: 0.1,
                                 // fixedStepSize: result.data.metric.places,
                                 callback: function(tickValue, index, ticks) {
