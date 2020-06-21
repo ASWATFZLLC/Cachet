@@ -41,7 +41,6 @@ function commarize(value) {
     var order = Math.floor(Math.log(value) / Math.log(1000));
 
     var unitname = units[(order - 1)];
-    toFixed
     var num = value / 1000 ** order; 
     num = num.floor(2)   
 //    var num = Math.floor(value / 1000 ** order);
