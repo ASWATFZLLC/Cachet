@@ -206,7 +206,11 @@ module.exports = {
                     tooltips: {
                         callbacks: {
                             label: function(tooltipItem, data) {
-                                return tooltipItem.yLabel + ' ' + metric.suffix;
+                                value = tooltipItem.yLabel
+                                if (tooltipItem.yLabel >= 1e3) {
+                                    value=commarize(tickValue);
+                                }
+                                return value + ' ' + metric.suffix;
                             }
                         }
                     }
