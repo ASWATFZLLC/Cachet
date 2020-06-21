@@ -191,17 +191,13 @@ module.exports = {
                                         tickString = '0' // Never show decimal places for 0
                                     }
 
-                                    return tickString
+                                   // return tickString
+
+                                    return String(value).commarize(); 
+
                                 }
                             }
-                        },{
-                        ticks: {
-                            // Abbreviate the millions
-                            callback: function(value, index, values) {
-                                return String(value).commarize(); 
-                            }
-                        }
-                    }]
+                        },]
                     },
                     tooltips: {
                         callbacks: {
