@@ -43,9 +43,6 @@ function commarize(value) {
     var unitname = units[(order - 1)];
     var num = value / 1000 ** order; 
     num = num.toFixed(2)   
-//    var num = Math.floor(value / 1000 ** order);
-
-    // output number remainder + unitname
     return num + unitname
   }
 
@@ -173,6 +170,11 @@ module.exports = {
                                 suggestedMax: 0.1,
                                 // fixedStepSize: result.data.metric.places,
                                 callback: function(tickValue, index, ticks) {
+                                    // Alter numbers larger than 1k
+                                    if (tickValue >= 1e3) {
+                                        return commarize(tickValue);
+                                    }
+
                                     let delta = ticks[1] - ticks[0]
 
                                     // If we have a number like 2.5 as the delta, figure out how many decimal places we need
@@ -193,9 +195,9 @@ module.exports = {
                                         tickString = '0' // Never show decimal places for 0
                                     }
 
-                                   // return tickString
+                                    return tickString
 
-                                    return commarize(tickValue);
+                                   
 
                                 }
                             }
