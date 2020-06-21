@@ -193,7 +193,7 @@ module.exports = {
 
                                    // return tickString
 
-                                    return String(value).commarize(); 
+                                    return String(tickValue).commarize(); 
 
                                 }
                             }
