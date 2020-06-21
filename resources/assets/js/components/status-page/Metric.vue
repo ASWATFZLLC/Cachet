@@ -208,7 +208,7 @@ module.exports = {
                             label: function(tooltipItem, data) {
                                 value = tooltipItem.yLabel
                                 if (tooltipItem.yLabel >= 1e3) {
-                                    value=commarize(tickValue);
+                                    value=commarize(tooltipItem.yLabel);
                                 }
                                 return value + ' ' + metric.suffix;
                             }
