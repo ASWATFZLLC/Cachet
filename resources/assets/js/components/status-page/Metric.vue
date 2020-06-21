@@ -42,7 +42,7 @@ function commarize(value) {
 
     var unitname = units[(order - 1)];
     var num = value / 1000 ** order; 
-    num = num.floor(2)   
+    num = num.toFixed(2)   
 //    var num = Math.floor(value / 1000 ** order);
 
     // output number remainder + unitname
