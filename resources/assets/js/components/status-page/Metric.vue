@@ -176,7 +176,14 @@ module.exports = {
                                     return tickString
                                 }
                             }
-                        }]
+                        },{
+                        ticks: {
+                            // Abbreviate the millions
+                            callback: function(value, index, values) {
+                                return value / 1e6 + 'M';
+                            }
+                        }
+                    }]
                     },
                     tooltips: {
                         callbacks: {
