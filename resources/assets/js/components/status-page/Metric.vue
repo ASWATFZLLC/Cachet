@@ -32,6 +32,24 @@ const _ = require('lodash')
 Chart.defaults.global.elements.point.hitRadius = 10
 Chart.defaults.global.responsiveAnimationDuration = 1000
 Chart.defaults.global.legend.display = false
+function commarize(min) {
+  min = min || 1e3;
+  // Alter numbers larger than 1k
+  if (this >= min) {
+    var units = ["k", "M", "B", "T"];
+
+    var order = Math.floor(Math.log(this) / Math.log(1000));
+
+    var unitname = units[(order - 1)];
+    var num = Math.floor(this / 1000 ** order);
+
+    // output number remainder + unitname
+    return num + unitname
+  }
+
+  // return formatted original number
+  return this.toLocaleString()
+}
 
 module.exports = {
     props: [
@@ -180,7 +198,7 @@ module.exports = {
                         ticks: {
                             // Abbreviate the millions
                             callback: function(value, index, values) {
-                                return value / 1e6 + 'M';
+                                return String(value).commarize(); 
                             }
                         }
                     }]
