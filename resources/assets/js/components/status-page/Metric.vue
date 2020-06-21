@@ -35,7 +35,7 @@ Chart.defaults.global.legend.display = false
 function commarize(value) {
   min = 1e3;
   // Alter numbers larger than 1k
-  if (this >= min) {
+  if (value >= min) {
     var units = ["k", "M", "B", "T"];
 
     var order = Math.floor(Math.log(value) / Math.log(1000));
