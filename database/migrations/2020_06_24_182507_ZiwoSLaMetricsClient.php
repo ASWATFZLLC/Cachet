@@ -29,9 +29,7 @@ class ZiwoSLaMetricsClient extends Migration
             $table->bigInteger('total_queries')->default(0);
             $table->bigInteger('successful_queries')->default(0);
             $table->bigInteger('failed_queries')->default(0);
-            $table->decimal('calculated_sla',8,5);
-            $table->timestamp('created_at')->default(0);
-            $table->timestamp('updated_at')->default(0);
+            $table->decimal('calculated_sla',8,3);
         });
     }
 
