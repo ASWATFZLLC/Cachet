@@ -25,12 +25,13 @@ class ZiwoSLaMetricsClient extends Migration
         Schema::table('ziwo-client-sla', function (Blueprint $table) {
             $table->increments('id')->primary();
             $table->string('instance');
-            $table->bigInteger('total_all_queries')->unsigned();
-            $table->bigInteger('total_queries')->unsigned();
-            $table->bigInteger('successful_queries')->unsigned();
-            $table->bigInteger('failed_queries')->unsigned();
+            $table->bigInteger('total_all_queries')->default(0);
+            $table->bigInteger('total_queries')->default(0);
+            $table->bigInteger('successful_queries')->default(0);
+            $table->bigInteger('failed_queries')->default(0);
             $table->decimal('calculated_sla',8,5);
-            $table->timestamps();
+            $table->timestamp('created_at')->default(0);
+            $table->timestamp('updated_at')->default(0);
         });
     }
 
