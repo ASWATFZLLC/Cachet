@@ -31,8 +31,7 @@ class AlterIncidentsAddNotifications extends Migration
             $table->bigInteger('failed_queries');
             $table->decimal('calculated_sla',8,6);
             $table->timestamps();
-            $table->index(['instance', 'created_at']);
-
+//            $table->index(['instance']);
         });
     }
 
@@ -43,8 +42,8 @@ class AlterIncidentsAddNotifications extends Migration
      */
     public function down()
     {
-        Schema::table('ziwo-client-sla', function (Blueprint $table) {
-            $table->drop('ziwo-client-sla');
-        });
+//        Schema::table('ziwo-client-sla', function (Blueprint $table) {
+//            $table->drop('ziwo-client-sla');
+//        });
     }
 }
