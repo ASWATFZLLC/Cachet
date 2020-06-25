@@ -23,7 +23,7 @@ class ZiwoSLaMetricsClient extends Migration
     public function up()
     {
         Schema::create('ziwo-client-sla', function (Blueprint $table) {
-            $table->increments('id')->primary();
+            $table->increments('id');
             $table->string('instance');
             $table->bigInteger('total_all_queries')->default(0);
             $table->bigInteger('total_queries')->default(0);
