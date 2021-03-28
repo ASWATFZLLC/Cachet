@@ -37,8 +37,8 @@ class PgSqlRepository extends AbstractMetricRepository implements MetricInterfac
             "WHERE {$this->getMetricsTable()}.id = :metricId ".
             "AND {$this->getMetricPointsTable()}.created_at >= (NOW() - INTERVAL '{$minutes}' MINUTE) ".
             "AND {$this->getMetricPointsTable()}.created_at <= NOW() ".
-            "GROUP BY to_char({$this->getMetricPointsTable()}.created_at, 'YYYY-MM-DD HH24:MI')".
-            "ORDER BY to_char({$this->getMetricPointsTable()}.created_at, 'YYYY-MM-DD HH24:MI')", [
+            "GROUP BY to_char({$this->getMetricPointsTable()}.created_at, 'YYYY-MM-DD HH24:MI'), metric_points.value ".
+            "ORDER BY to_char({$this->getMetricPointsTable()}.created_at, 'YYYY-MM-DD HH24:MI') ", [
                 'metricId' => $metric->id,
             ]);
 
@@ -61,8 +61,8 @@ class PgSqlRepository extends AbstractMetricRepository implements MetricInterfac
             "WHERE {$this->getMetricsTable()}.id = :metricId ".
             "AND {$this->getMetricPointsTable()}.created_at >= (NOW() - INTERVAL '{$hour}' HOUR) ".
             "AND {$this->getMetricPointsTable()}.created_at <= NOW() ".
-            "GROUP BY to_char({$this->getMetricPointsTable()}.created_at, 'YYYY-MM-DD HH24:00') ".
-            "ORDER BY to_char({$this->getMetricPointsTable()}.created_at, 'YYYY-MM-DD HH24:00')", [
+            "GROUP BY to_char({$this->getMetricPointsTable()}.created_at, 'YYYY-MM-DD HH24:00'), metric_points.value ".
+            "ORDER BY to_char({$this->getMetricPointsTable()}.created_at, 'YYYY-MM-DD HH24:00') ", [
                 'metricId' => $metric->id,
             ]);
 
@@ -85,8 +85,8 @@ class PgSqlRepository extends AbstractMetricRepository implements MetricInterfac
             "WHERE {$this->getMetricsTable()}.id = :metricId ".
             "AND {$this->getMetricPointsTable()}.created_at >= (DATE(NOW()) - INTERVAL '{$day}' DAY) ".
             "AND {$this->getMetricPointsTable()}.created_at <= DATE(NOW()) ".
-            "GROUP BY to_char({$this->getMetricPointsTable()}.created_at, 'YYYY-MM-DD HH24:00')".
-            "ORDER BY to_char({$this->getMetricPointsTable()}.created_at, 'YYYY-MM-DD HH24:00')", [
+            "GROUP BY to_char({$this->getMetricPointsTable()}.created_at, 'YYYY-MM-DD HH24:00'), metric_points.value ".
+            "ORDER BY to_char({$this->getMetricPointsTable()}.created_at, 'YYYY-MM-DD HH24:00') ", [
                 'metricId' => $metric->id,
             ]);
 
